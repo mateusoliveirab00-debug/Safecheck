@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SafeCheck</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>🛡️ SafeCheck</h1>
+    <p>Verifique senhas e links suspeitos. Nada é armazenado.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Força da senha</h2>
+      <div class="linha">
+        <input id="senha" type="password" placeholder="Digite uma senha" autocomplete="off">
+        <button id="ver" type="button" class="secundario">Mostrar</button>
+      </div>
+      <div class="barra"><div id="barra-senha"></div></div>
+      <div id="res-senha" class="resultado" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>Verificador de link</h2>
+      <div class="linha">
+        <input id="url" type="text" placeholder="https://exemplo.com/login">
+        <button id="btn-url" type="button">Analisar</button>
+      </div>
+      <div id="res-url" class="resultado" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>Gerador de senhas</h2>
+      <div class="linha opcoes">
+        <label>Tamanho: <input id="tamanho" type="number" min="8" max="64" value="16"></label>
+        <label><input id="simbolos" type="checkbox" checked> Símbolos</label>
+        <button id="btn-gerar" type="button">Gerar</button>
+      </div>
+      <div class="linha">
+        <input id="senha-gerada" type="text" readonly placeholder="A senha aparece aqui">
+        <button id="copiar" type="button" class="secundario">Copiar</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Projeto educacional · Python + Flask</footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
